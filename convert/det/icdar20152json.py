@@ -40,7 +40,7 @@ def cvt(gt_path, save_path, img_folder):
 
 
 if __name__ == '__main__':
-    gt_path = r'D:\dataset\icdar2015\detection\test\gt'
-    img_folder = r'D:\dataset\icdar2015\detection\test\imgs'
-    save_path = r'D:\dataset\icdar2015\detection\test.json'
-    cvt(gt_path, save_path, img_folder)
+    img_folder = '/Users/qiuyurui/Desktop/Text-Detect-Data/icdar2015/detection/train/imgs'
+    gt_folder = '/Users/qiuyurui/Desktop/Text-Detect-Data/icdar2015/detection/train/gt'
+    save_path = '/Users/qiuyurui/Desktop/Text-Detect-Data/icdar2015/detection/train_new.json'
+    cvt(gt_folder, save_path, img_folder)
