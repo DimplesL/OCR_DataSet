@@ -1,18 +1,19 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/3/18 14:12
-# @Author  : zhoujun
+# @Time    : 2020/8/24 14:12
+# @Author  : Qiu
 """
 将icdar2015数据集转换为统一格式
 """
 import pathlib
+import os
 from tqdm import tqdm
 from convert.utils import load, save, get_file_list
 
 
-def cvt(save_path, img_folder):
+def cvt(save_path, gt_folder, img_folder):
     """
     将icdar2015格式的gt转换为json格式
-    :param gt_path:
+    :param gt_folder:
     :param save_path:
     :return:
     """
@@ -20,7 +21,8 @@ def cvt(save_path, img_folder):
     data_list = []
     for img_path in tqdm(get_file_list(img_folder, p_postfix=['.jpg'])):
         img_path = pathlib.Path(img_path)
-        gt_path = pathlib.Path(img_folder) / img_path.name.replace('.jpg', '.txt')
+        # gt_path = pathlib.Path(gt_folder) / img_path.name.replace('.jpg', '.txt')
+        gt_path = os.path.join(gt_folder, 'gt_' + img_path.name.replace('.jpg', '.txt'))
         content = load(gt_path)
         cur_gt = {'img_name': img_path.name, 'annotations': []}
         for line in content:
@@ -40,6 +42,8 @@ def cvt(save_path, img_folder):
 
 
 if __name__ == '__main__':
-    img_folder = r'D:\dataset\icdar2017rctw\detection\imgs'
-    save_path = r'D:\dataset\icdar2017rctw\detection\train.json'
-    cvt(save_path, img_folder)
+    img_folder = '/Users/qiuyurui/Desktop/Text-Detect-Data/icdar2015/detection/train/imgs'
+    gt_folder = '/Users/qiuyurui/Desktop/Text-Detect-Data/icdar2015/detection/train/gt'
+    save_path = '/Users/qiuyurui/Desktop/Text-Detect-Data/icdar2015/detection/train_new.json'
+
+    cvt(save_path, gt_folder, img_folder)
