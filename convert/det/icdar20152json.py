@@ -5,6 +5,9 @@
 将icdar2015数据集转换为统一格式
 """
 import pathlib
+import os
+import sys
+sys.path.append(os.getcwd())
 from tqdm import tqdm
 from convert.utils import load, save, get_file_list
 
