@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/3/18 14:12
-# @Author  : zhoujun
+
 """
 将icdar2015数据集转换为统一格式
 """

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/3/20 20:33
-# @Author  : zhoujun
+
 """
 用于检查生成的json文件有没有问题
 """

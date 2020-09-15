@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/3/20 20:55
-# @Author  : zhoujun
+
 """
 根据生成的json文件 裁剪出识别训练数据
 """

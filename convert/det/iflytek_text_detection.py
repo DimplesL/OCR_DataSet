@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/7/7 10:08
-# @Author  : zhoujun
+
 import numpy as np
 from tqdm import tqdm
 from convert.utils import load, save

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/3/23 9:29
-# @Author  : zhoujun
+
 import os
 import pathlib
 import numpy as np

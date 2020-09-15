@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
-# @Time    : 2020/3/21 12:54
-# @Author  : zhoujun
+
 """
 将coco_text数据集转换为统一格式
 """
