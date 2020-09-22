@@ -169,7 +169,7 @@ def LabelMe2cvt(gt_dict, gt_dict2, data_root, gt_folder):
             cur_line_gt['chars'] = chars_gt
             # 字符串级别的信息
             cur_line_gt['polygon'] = shape['points']
-            cur_line_gt['text'] = "###"
+            cur_line_gt['text'] = "**"
             cur_line_gt['illegibility'] = True if cur_line_gt['text'] == '*' or cur_line_gt['text'] == '###' else False
             cur_gt['annotations'].append(cur_line_gt)
         data_list.append(cur_gt)
@@ -186,7 +186,7 @@ def LabelMe2cvt(gt_dict, gt_dict2, data_root, gt_folder):
             cur_line_gt['chars'] = chars_gt
             # 字符串级别的信息
             cur_line_gt['polygon'] = shape['points']
-            cur_line_gt['text'] = "###"
+            cur_line_gt['text'] = "**"
             cur_line_gt['illegibility'] = True if cur_line_gt['text'] == '*' or cur_line_gt['text'] == '###' else False
             cur_gt['annotations'].append(cur_line_gt)
         data_list.append(cur_gt)
@@ -194,20 +194,22 @@ def LabelMe2cvt(gt_dict, gt_dict2, data_root, gt_folder):
 
 
 if __name__ == '__main__':
-    data_root = '/home/vip/qyr/.data/'
-    save_path = '/home/vip/qyr/.data/train_mix.json'
-    save_path2 = '/home/vip/qyr/.data/val_mix.json'
+    data_root = '/Users/qiuyurui/Desktop/Text-Detect-Data'
+    save_path = '/Users/qiuyurui/Desktop/Text-Detect-Data/train_real.json'
+    save_path2 = '/Users/qiuyurui/Desktop/Text-Detect-Data/val_real.json'
     gt_dict = {'data_root': data_root, 'data_list': []}
     gt_dict2 = {'data_root': data_root, 'data_list': []}
+    for i in [17, 18, 19, 23]:  # 11, 12, 13, 16, 17, 18, 19, 20, 21, 22, 23
 
-    LSVTcvt(gt_dict, gt_dict2, data_root,
-            '/home/vip/qyr/.data/LSVT-detect-icdar2019/ICDAR2019LSVT/train_full_labels.json',
-            'LSVT-detect-icdar2019/ICDAR2019LSVT/train_full_images')
-    MSRAcvt(gt_dict, data_root, 'MSRA-TD500/train', 'MSRA-TD500/train')
-    icdar2015cvt(gt_dict, data_root, 'icdar2015/detection/train/gt',
-                 'icdar2015/detection/train/imgs')
+        LabelMe2cvt(gt_dict, gt_dict2, data_root, '{}'.format(i))
+    # LSVTcvt(gt_dict, gt_dict2, data_root,
+    #         '/home/vip/qyr/.data/LSVT-detect-icdar2019/ICDAR2019LSVT/train_full_labels.json',
+    #         'LSVT-detect-icdar2019/ICDAR2019LSVT/train_full_images')
+    # MSRAcvt(gt_dict, data_root, 'MSRA-TD500/train', 'MSRA-TD500/train')
+    # icdar2015cvt(gt_dict, data_root, 'icdar2015/detection/train/gt',
+    #              'icdar2015/detection/train/imgs')
     save(gt_dict, save_path)
-    MSRAcvt(gt_dict2, data_root, 'MSRA-TD500/test', 'MSRA-TD500/test')
-    icdar2015cvt(gt_dict2, data_root, 'icdar2015/detection/test/gt',
-                 'icdar2015/detection/test/imgs')
+    # MSRAcvt(gt_dict2, data_root, 'MSRA-TD500/test', 'MSRA-TD500/test')
+    # icdar2015cvt(gt_dict2, data_root, 'icdar2015/detection/test/gt',
+    #              'icdar2015/detection/test/imgs')
     save(gt_dict2, save_path2)
