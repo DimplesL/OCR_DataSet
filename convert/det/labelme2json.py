@@ -36,6 +36,8 @@ def LabelMe2cvt(gt_dict, data_root, gt_folder):
         cur_gt = {'img_name': gt_folder + '/' + img_path.name.replace('.json', '.jpg'), 'annotations': []}
         content = json.load(open(json_file, 'r'))
         for shape in content['shapes']:
+            if shape["label"] != "text":
+                continue
             cur_line_gt = {'polygon': [], 'text': '', 'illegibility': False, 'language': 'Latin'}
             chars_gt = [{'polygon': [], 'char': '', 'illegibility': False, 'language': 'Latin'}]
             cur_line_gt['chars'] = chars_gt
